@@ -26,7 +26,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
 
+    override fun onResume() {
+        super.onResume()
         mp = MediaPlayer()
 
         scanSongs()
@@ -34,6 +37,12 @@ class MainActivity : AppCompatActivity() {
 
         seekBarConfig()
         musicPlayerControls()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mp.stop()
+        mp.release()
     }
 
     private fun scanSongs() {
@@ -60,7 +69,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getPlayList(rootPath: String): ArrayList<HashMap<String, String>>? {
-        var fileList = ArrayList<HashMap<String, String>>()
+        val fileList = ArrayList<HashMap<String, String>>()
         try {
             val rootFolder = File(rootPath)
             val files = rootFolder.listFiles() ?: null
@@ -136,6 +145,8 @@ class MainActivity : AppCompatActivity() {
             override fun onProgressChanged(p0: SeekBar?, pos: Int, changed: Boolean) {
                 if (changed){
                     mp.seekTo(pos)
+                    binding.seekBarSB.progress = pos
+                    binding.timePassedTV.text = durationToString(pos)
                 }
             }
 
@@ -148,10 +159,13 @@ class MainActivity : AppCompatActivity() {
         })
 
         runnable = Runnable {
-            if (currentSongIndex in 0 until songsFound){
-                updateSongTime()
-                if (mp.currentPosition >= mp.duration)
-                    nextSong()
+            try {
+                if (currentSongIndex in 0 until songsFound && mp.isPlaying){
+                    updateSongTime()
+                    if (mp.currentPosition >= mp.duration)
+                        nextSong()
+                }
+            } catch (e: IllegalStateException){
             }
             handler.postDelayed(runnable, 50)
         }
