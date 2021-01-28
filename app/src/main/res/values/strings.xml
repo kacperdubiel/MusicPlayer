@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MusicPlayer</string>
+    <string name="default_file_name">Song name.mp3</string>
+    <string name="default_max_time_text">0:00</string>
+    <string name="default_passed_time">0:00</string>
+    <string name="forward">forward</string>
+    <string name="play_pause">play/pause</string>
+    <string name="stop">stop</string>
+    <string name="backward">backward</string>
+    <string name="reload_songs">Reload songs</string>
+    <string name="song_counter_default">#0 out of 0</string>
+    <string name="song_counter">#%1$d out of %2$d</string>
+</resources>

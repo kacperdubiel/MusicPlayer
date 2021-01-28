@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/filenameTV"
+        android:layout_width="357dp"
+        android:layout_height="61dp"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.36"
+        tools:text="@string/default_file_name" />
+
+    <SeekBar
+        android:id="@+id/seekBarSB"
+        android:layout_width="276dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filenameTV" />
+
+    <TextView
+        android:id="@+id/timePassedTV"
+        android:layout_width="44dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/default_passed_time"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarSB"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filenameTV" />
+
+    <TextView
+        android:id="@+id/timeMaxTV"
+        android:layout_width="45dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/default_max_time_text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toEndOf="@+id/seekBarSB"
+        app:layout_constraintTop_toBottomOf="@+id/filenameTV" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="400dp"
+        android:layout_height="71dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarSB"
+        app:layout_constraintVertical_bias="0.01999998">
+
+        <ImageButton
+            android:id="@+id/nextBTN"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="4dp"
+            android:contentDescription="@string/forward"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/forwardBTN"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_skip_next" />
+
+        <ImageButton
+            android:id="@+id/previousBTN"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="@string/backward"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/backwardBTN"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_skip_previous" />
+
+        <ImageButton
+            android:id="@+id/forwardBTN"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="4dp"
+            android:contentDescription="@string/forward"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/stopBTN"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_forward_10" />
+
+        <ImageButton
+            android:id="@+id/backwardBTN"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="@string/backward"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/playBTN"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_replay_10" />
+
+        <ImageButton
+            android:id="@+id/playBTN"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:contentDescription="@string/play_pause"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.411"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_play_arrow" />
+
+        <ImageButton
+            android:id="@+id/stopBTN"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="4dp"
+            android:contentDescription="@string/stop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/playBTN"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_stop" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/reloadBTN"
+        android:layout_width="328dp"
+        android:layout_height="54dp"
+        android:text="@string/reload_songs"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.01999998" />
+
+    <TextView
+        android:id="@+id/songsCounterTV"
+        android:layout_width="138dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/song_counter_default"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/filenameTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
